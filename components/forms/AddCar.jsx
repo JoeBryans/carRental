@@ -1,17 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { yupResolver } from "../../hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { useSearchParams } from "next/navigation";
-import Category from "../page/Category";
-import { Button } from "../ui/button";
 import Additional_Info from "./Additional_Info";
 import UploadButtons from "../UploadThing/UploadButton";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { PostRequest } from "@/request/request";
 import { useUser } from "@clerk/nextjs";
 import axios from "axios";
 
