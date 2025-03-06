@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { yupResolver } from "../../hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { Label } from "../ui/label";

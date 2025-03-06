@@ -1,5 +1,5 @@
 "use client";
-import Container from "@/components/Container";
+import Container from "../../Container";
 import { Button } from "../../ui/button";
 import {
   AddressElement,

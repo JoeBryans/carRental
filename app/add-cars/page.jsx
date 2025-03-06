@@ -1,5 +1,5 @@
-import Container from "@/components/Container";
-import AddCar from "@/components/forms/AddCar";
+import Container from "../../components/Container";
+import AddCar from "../../components/forms/AddCar";
 import React from "react";
 
 const page = () => {

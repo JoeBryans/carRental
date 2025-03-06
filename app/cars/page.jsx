@@ -1,6 +1,6 @@
-import Container from "@/components/Container";
-import Filter from "@/components/header/Filter";
-import AllCars from "@/components/page/cars/Car";
+import Container from "../../components/Container";
+import Filter from "../../components/header/Filter";
+import AllCars from "../../components/page/cars/Car";
 import Image from "next/image";
 import React from "react";
 
