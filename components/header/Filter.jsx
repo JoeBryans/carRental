@@ -5,17 +5,10 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useState } from "react";
-
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-// DateRange
-import DatePicker from "react-date-picker";
-import "react-date-picker/dist/DatePicker.css";
-import "react-calendar/dist/Calendar.css";
 import { format } from "date-fns";
-import { Select } from "@react-three/drei";
-import Category from "../page/Category";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Calendar } from "lucide-react";
 
@@ -23,7 +16,7 @@ const Filter = () => {
   const router = useRouter();
   const search = useSearchParams();
   const [keyword, setKeyword] = useState("");
-  const [price, setPrice] = useState("");
+  const [brand, setBrand] = useState("");
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState({
     startDate: new Date(),
@@ -35,6 +28,7 @@ const Filter = () => {
   const handleChange = (ranges) => {
     setDate(ranges.selection);
   };
+
   // URLSearchParams.s
   // const dates = search.set(date);
   // const location = search.set(keyword);
@@ -45,8 +39,9 @@ const Filter = () => {
     const params = new URLSearchParams(search);
     params.set("location", keyword);
     // params.set("brand", keyword);
-    params.set("checkin", start);
-    params.set("checkout", end);
+    const checkin = params.set("checkin", start);
+    const checkout = params.set("checkout", end);
+    params.set("brand", brand);
     const filtal = params.toString();
     // search.toString(dates);
     // search.toString(location);
@@ -67,8 +62,27 @@ const Filter = () => {
                 onChange={(e) => setKeyword(e.target.value)}
               />
             </Label>
-            <Label className="flex items-center gap-1 ">
-              <Category />
+            <Label htmlFor="brand" className="w-full ">
+              <select
+                name="brand"
+                id="brand"
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
+                className="w-full p-2 rounded-lg border"
+              >
+                <option
+                  value=""
+                  className="text-muted-foreground"
+                  defaultValue={""}
+                >
+                  Brand
+                </option>
+                <option value="lambo">Lambo</option>
+                <option value="camery">Camery</option>
+                <option value="benz">Benz</option>
+                <option value="tesla">Tesla</option>
+                <option value="toyotal">Toyotal</option>
+              </select>
             </Label>
             <Label className=" flex items-center gap-2 text-muted-foreground  px-2 border rounded-lg">
               <span className="text-muted-foreground">

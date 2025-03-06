@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Get } from "@/request/request";
 import { Button } from "@/components/ui/button";
 import { ReserveButton } from "../Reserve/ReserveButton";
+import Currency from "@/components/Currency";
 
 const AllCars = () => {
   const [car, setCar] = useState([]);
@@ -94,7 +95,7 @@ const AllCars = () => {
                 </div>
                 <div className="divider"></div>
                 <div className="flex items-center justify-between w-full">
-                  <span>${items.price}</span>
+                  <Currency price={items.price} />
 
                   <ReserveButton id={items.id} items={items} />
                 </div>

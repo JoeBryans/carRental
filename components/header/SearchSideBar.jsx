@@ -12,9 +12,12 @@ import { Button } from "../ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
 import Category from "../page/Category";
 import { Label } from "../ui/label";
+import { SearchBar } from "@/hooks/store/slice";
+import { useDispatch } from "react-redux";
 
 const SearchSideBar = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const search = useSearchParams();
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -26,13 +29,12 @@ const SearchSideBar = () => {
     max: 0,
     brand: "",
   });
-  console.log(formData);
-
   const [date, setDate] = useState({
     startDate: new Date(),
     endDate: new Date(),
     key: "selection",
   });
+
   const start = format(date.startDate, "MM-dd-yyyy");
   const end = format(date.endDate, "MM-dd-yyyy");
   const handleChange = (ranges) => {
@@ -57,6 +59,8 @@ const SearchSideBar = () => {
       startDate: checkin,
       endDate: checkout,
     });
+    dispatch(SearchBar({ checkin, checkout }));
+
     setFormData({
       // location: "",
       // petrol: "",

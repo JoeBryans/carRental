@@ -14,6 +14,7 @@ import axios from "axios";
 import { Get } from "@/request/request";
 import Link from "next/link";
 import { ReserveButton } from "./Reserve/ReserveButton";
+import Currency from "../Currency";
 
 const Cars = () => {
   const [car, setCar] = useState([]);
@@ -122,16 +123,17 @@ const Cars = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {car.splice(0, 6).map((items, i) => {
           return (
-            <Link href={"/cars"}>
-              <motion.div
-                variants={container}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
-                key={i}
-                className="flex flex-col gap-8 max-w-80 w-[95%] max-auto p-2 hover:border-2 rounded-lg transition-all ease-out"
-              >
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={i}
+              key={i}
+              className="flex flex-col gap-8 max-w-80 w-[95%] max-auto p-2 hover:border-2 rounded-lg transition-all ease-out"
+            >
+              {" "}
+              <Link href={"/cars"}>
                 <div className="max-h-48">
                   <Image
                     src={items.image}
@@ -141,40 +143,42 @@ const Cars = () => {
                     className="w-[100%] max-h-[100%]"
                   />
                 </div>
-                <div className="">
+              </Link>
+              <div className="">
+                <Link href={"/cars"}>
                   <h2 className="text-xl font-bold my-4 line-clamp-1">
                     {items.name}
                   </h2>
+                </Link>
 
-                  <div className="grid grid-cols-3 w-full  gap-4">
-                    <span className="flex items-center gap-1">
-                      <Users2 /> {`${items.seats} seat`}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <img src="/car.png" alt="car" className="w-4 h-4" />
-                      {`${items.doors} `}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <FuelIcon /> {`${items.petrol}`}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <CalendarRange /> {`${items.year}`}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Settings /> {`${items.gearbox} `}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      {`${items.mileage}`}
-                    </span>
-                  </div>
-                  <div className="divider"></div>
-                  <div className="flex items-center justify-between w-full">
-                    <span>${items.price}</span>
-                    <ReserveButton id={items.id} />
-                  </div>
+                <div className="grid grid-cols-3 w-full  gap-4">
+                  <span className="flex items-center gap-1">
+                    <Users2 /> {`${items.seats} seat`}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <img src="/car.png" alt="car" className="w-4 h-4" />
+                    {`${items.doors} `}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <FuelIcon /> {`${items.petrol}`}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <CalendarRange /> {`${items.year}`}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Settings /> {`${items.gearbox} `}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    {`${items.mileage}`}
+                  </span>
                 </div>
-              </motion.div>
-            </Link>
+                <div className="divider"></div>
+                <div className="flex items-center justify-between w-full">
+                  <Currency price={items.price} />
+                  <ReserveButton id={items.id} />
+                </div>
+              </div>
+            </motion.div>
           );
         })}
       </div>

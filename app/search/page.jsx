@@ -1,5 +1,7 @@
 "use client";
+import CalculateDate from "@/components/CalculateDate";
 import Container from "@/components/Container";
+import Currency from "@/components/Currency";
 import SearchSideBar from "@/components/header/SearchSideBar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,8 +15,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const page = () => {
+  const daysDiff = useSelector((state) => state.car.search);
+  console.log(daysDiff);
+  const { checkin, checkout } = daysDiff;
   const [show, setShow] = useState(false);
   const search = useSearchParams();
   const [cars, setCars] = useState([]);
@@ -34,6 +40,7 @@ const page = () => {
     };
     FetchData();
   }, [search]);
+
   return (
     <div>
       <Container>
@@ -48,7 +55,7 @@ const page = () => {
                 return (
                   <Card key={i}>
                     <CardContent>
-                      <div className="flex gap-4 w-full  ">
+                      <div className="flex md:flex-row flex-col gap-4 w-full  ">
                         <Image
                           src={car.image}
                           alt="image"
@@ -61,8 +68,8 @@ const page = () => {
                             <span className="text-muted-foreground line-clamp-3">
                               {car.name}
                             </span>
-                            <span className="text-muted-foreground">
-                              {car.price}/ day
+                            <span className="text-muted-foreground text-sm">
+                              <Currency price={car.price} /> per day
                             </span>
                           </div>
                           <div className="flex justify-between w-full ">
@@ -77,7 +84,9 @@ const page = () => {
                               </span>
                               <span className="text-muted-foreground flex items-center gap-1">
                                 <CarFrontIcon />
-                                <span className="col-span-2">{car.transmission}</span>
+                                <span className="col-span-2">
+                                  {car.transmission}
+                                </span>
                               </span>
                               <span className="text-muted-foreground flex items-center gap-1">
                                 <UsersRound />
@@ -93,7 +102,11 @@ const page = () => {
                               </span>
                             </div>
                             <div className="">
-                              <span>$400 for 2 days</span>
+                              <CalculateDate
+                                price={car.price}
+                                date1={checkin}
+                                date2={checkout}
+                              />
                             </div>
                           </div>
                           <div className="flex items-center justify-between">
@@ -105,7 +118,7 @@ const page = () => {
                               see more
                             </Button>
                             <Button variant="primary" className="w-max mt-2">
-                              <Link href={"/reserve"}>Reserve</Link>
+                              <Link href={`/reserve/${id}`}> Reserve</Link>
                             </Button>
                           </div>
                         </div>
