@@ -30,11 +30,8 @@ const CheckOutForm = ({ clientSecret }) => {
       if (!stripe || !elements) {
         return;
       }
-      const { error } = await stripe.confirmCardPayment({
+      const { error } = await stripe.confirmPayment({
         elements,
-        // payment_method: {
-        //     card: elements.getElement(CardElement),
-        // },
         confirmParams: {
           return_url: "http://localhost:3000/success",
         },
@@ -48,9 +45,9 @@ const CheckOutForm = ({ clientSecret }) => {
         console.log("error occured");
         // setError(error.message);
       }
-      setI;
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err);
+      console.log(err);
     }
   };
   return (
