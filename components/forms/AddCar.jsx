@@ -73,7 +73,7 @@ const AddCar = () => {
     <div className="max-w-full w-[90%]   p-3 mx-auto z-20">
       <Card>
         <CardHeader className="w-full text-center font-bold text-2xl ">
-          <CardTitle> Car Listen</CardTitle>
+          <CardTitle> Car Listen </CardTitle>
         </CardHeader>
         <CardContent>
           <form
