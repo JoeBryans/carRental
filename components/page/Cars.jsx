@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { Get } from "@/request/request";
+import { Get } from "../../request/request";
 import Link from "next/link";
 import { ReserveButton } from "./Reserve/ReserveButton";
 import Currency from "../Currency";
@@ -132,7 +132,6 @@ const Cars = () => {
               key={i}
               className="flex flex-col gap-8 max-w-80 w-[95%] max-auto p-2 hover:border-2 rounded-lg transition-all ease-out"
             >
-              {" "}
               <Link href={"/cars"}>
                 <div className="max-h-48">
                   <Image

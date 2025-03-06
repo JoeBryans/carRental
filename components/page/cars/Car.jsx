@@ -3,10 +3,9 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { CalendarRange, FuelIcon, Settings, Users2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Get } from "@/request/request";
-import { Button } from "@/components/ui/button";
+import { Get } from "../../../request/request";
 import { ReserveButton } from "../Reserve/ReserveButton";
-import Currency from "@/components/Currency";
+import Currency from "../../Currency";
 
 const AllCars = () => {
   const [car, setCar] = useState([]);

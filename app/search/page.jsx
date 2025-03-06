@@ -1,10 +1,10 @@
 "use client";
-import CalculateDate from "@/components/CalculateDate";
-import Container from "@/components/Container";
-import Currency from "@/components/Currency";
-import SearchSideBar from "@/components/header/SearchSideBar";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import CalculateDate from "../../components/CalculateDate";
+import Container from "../../components/Container";
+import Currency from "../../components/Currency";
+import SearchSideBar from "../../components/header/SearchSideBar";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent } from "../../components/ui/card";
 import {
   CarFrontIcon,
   FuelIcon,
@@ -118,7 +118,7 @@ const page = () => {
                               see more
                             </Button>
                             <Button variant="primary" className="w-max mt-2">
-                              <Link href={`/reserve/${id}`}> Reserve</Link>
+                              <Link href={`/reserve/${car.id}`}> Reserve</Link>
                             </Button>
                           </div>
                         </div>

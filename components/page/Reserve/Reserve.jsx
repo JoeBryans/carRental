@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { reserve } from "@/hooks/store/slice";
+import { Button } from "../../ui/button";
+import { reserve } from "../../../hooks/store/slice";
 import { useRouter } from "next/navigation";
 import React, { use, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -11,7 +11,23 @@ const Reserve = ({ item }) => {
   console.log("reserve :", item);
 
   const handleReserve = async (item) => {
-    dispatch(reserve(item));
+    dispatch(
+      reserve({
+        price: item.price,
+        // userId: item.userId,
+        brand: item.brand,
+        model: item.model,
+        engine: item.engine,
+        transmission: item.transmission,
+        seats: item.seats,
+        gearbox: item.gearbox,
+        mileage: item.mileage,
+        petrol: item.petrol,
+        year: item.year,
+        name: item.name,
+        image: item.image,
+      })
+    );
     const res = await fetch(`http://localhost:3000/api/reserve`, {
       method: "POST",
       headers: {

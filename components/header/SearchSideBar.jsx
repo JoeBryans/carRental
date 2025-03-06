@@ -12,7 +12,7 @@ import { Button } from "../ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
 import Category from "../page/Category";
 import { Label } from "../ui/label";
-import { SearchBar } from "@/hooks/store/slice";
+import { SearchBar } from "../../hooks/store/slice";
 import { useDispatch } from "react-redux";
 
 const SearchSideBar = () => {

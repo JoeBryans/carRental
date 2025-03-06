@@ -2,30 +2,16 @@
 import Image from "next/image";
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-  Environment,
-  MeshReflectorMaterial,
-  OrbitControls,
-  PerspectiveCamera,
-  PresentationControls,
-  Stage,
-  useGLTF,
-} from "@react-three/drei";
-import { Model } from "@/components/Scene";
-import Hero from "@/components/header/Hero";
-import Slider from "@/components/header/galary";
-import Filter from "@/components/header/Filter";
-import { Card, CardHeader } from "@/components/ui/card";
-import Container from "@/components/Container";
-import WhyUse from "@/components/page/whyUse";
-import Cars from "@/components/page/Cars";
-import Testimoner from "@/components/page/Testimoner";
-import Blogs from "@/components/page/Blog";
-import PropertyCount from "@/components/page/propertyCount";
-const Models = (props) => {
-  const { scene } = useGLTF("/bmw_i8.glb");
-  return <primitive object={scene} scale={2} {...props} />;
-};
+import Hero from "../components/header/Hero";
+import Filter from "../components/header/Filter";
+import { Card, CardHeader } from "../components/ui/card";
+import Container from "../components/Container";
+import WhyUse from "../components/page/whyUse";
+import Cars from "../components/page/Cars";
+import Testimoner from "../components/page/Testimoner";
+import Blogs from "../components/page/Blog";
+import PropertyCount from "../components/page/propertyCount";
+
 export default function Home() {
   return (
     <div className="min-h-[100vh]">
