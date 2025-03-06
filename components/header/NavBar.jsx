@@ -3,16 +3,18 @@
 import Link from "next/link";
 import Container from "../Container";
 
-// import { useClerk, UserButton } from "@clerk/nextjs";
+import { useClerk, UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { User } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "../ui/button";
+// import { UserButton } from "@clerk/nextjs";
 
 const NavBar = () => {
   const router = useRouter();
-  const { user } = true;
-  // const { user } = useClerk();
+  // const { user } = true;
+  const { user } = useClerk();
   console.log(user);
 
   useEffect(() => {
@@ -85,20 +87,25 @@ const NavBar = () => {
             <div className="hidden md:block dropdown dropdown-end ">
               <ul className="menu menu-horizontal px-1 mr-3 items-center text-xl font-semibold w-max ">
                 <li>
-                  <Link href="/model">Cars</Link>
+                  <Link href="/cars">Cars</Link>
                 </li>
                 <li>
-                  <Link href="/model">Blog</Link>
+                  <Link href="/blog">Blog</Link>
                 </li>
 
                 <li className="mr-4">
-                  <Link href="/brand">About</Link>
+                  <Link href="/about">About</Link>
                 </li>
-                <li className="mr-4">
-                  <Link href="/brand">Service</Link>
+                <li className="mr-4 ">
+                  <Link href="/service">Service</Link>
+                </li>
+                <li className="mr-4  ">
+                  <Button variant="primary" className="font-semibold text-xl">
+                    <Link href="/add-cars"> Add Car</Link>{" "}
+                  </Button>
                 </li>
                 {user ? (
-                  <User />
+                  <UserButton />
                 ) : (
                   <li>
                     <Link

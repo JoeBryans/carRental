@@ -1,7 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
@@ -9,6 +9,32 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
+}
+
+model Car {
+  id           String   @id @default(cuid())
+  name         String
+  price        Int
+  userId       String?
+  image        String?
+  location     String?
+  brand        String?
+  transmission String?
+  engine       String?
+  gearbox      String?
+  type         String?
+  distance     String?
+  doors        Int?
+  seats        Int?
+  petrol       String?
+  model        String?
+  // year         String?
+  mileage      String?
+  features     String[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // @@unique([id, userId])
 }

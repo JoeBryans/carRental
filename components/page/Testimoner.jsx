@@ -15,7 +15,7 @@ const Testimoner = () => {
       <div className="flex items-center  gap-4 w-full overflow-hidden scroll-smooth scroll-hide">
         {[0, 1, 2, 3, 4, 5, 6].map((item, i) => {
           return (
-            <div className="card flex flex-col gap-3 max-w-[450px]">
+            <div key={i} className="card flex flex-col gap-3 max-w-[450px]">
               <div className="flex gap-8 ">
                 <Image
                   src={"/img/testimonial-3.jpg"}

@@ -3,6 +3,28 @@ import React from "react";
 import { Button } from "../ui/button";
 
 const Slider = () => {
+  const Slids = [
+    {
+      discription: <div>Hello1</div>,
+      color: "bg-[#77CECF]",
+      image: "/img/10815917.png",
+    },
+    {
+      discription: <div>hello2</div>,
+      color: "bg-[#77CECF]",
+
+      image: "/img/66815.jpg",
+    },
+    {
+      discription: <div>Hello3</div>,
+      color: "bg-[#77CECF]",
+      image: "/img/10815912.png",
+    },
+  ];
+
+  const data = Slids;
+  console.log(data);
+
   return (
     <div>
       <div className="carousel w-full h-[92vh] overflow-hidden">
