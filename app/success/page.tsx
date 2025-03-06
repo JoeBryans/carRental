@@ -1,17 +1,17 @@
-"use client";
+// "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { use, useEffect } from "react";
+// import { useRouter } from "next/navigation";
+import React from "react";
 
 const SuccessPage = () => {
-  const router = useRouter();
-  useEffect(() => {
-    // localStorage.removeItem("cartItems");
-    // localStorage.removeItem("shippinInfo");
-    // localStorage.removeItem("clientSecret");
-    localStorage.clear();
-    router.refresh();
-  }, []);
+  // const router = useRouter();
+  // useEffect(() => {
+  //   // localStorage.removeItem("cartItems");
+  //   // localStorage.removeItem("shippinInfo");
+  //   // localStorage.removeItem("clientSecret");
+  //   // localStorage.clear();
+  //   router.refresh();
+  // }, []);
   return (
     <div className="min-h-screen flex items-center justify-center ">
       <div className="bg-white p-8 rounded-lg shadow-lg text-center">
