@@ -46,62 +46,63 @@ const AllCars = () => {
         </span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {car.map((items, i) => {
-          return (
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              key={i}
-              className="flex flex-col gap-8 max-w-80 w-[95%] max-auto p-2 hover:border-2 rounded-lg "
-            >
-              <div className="max-h-48">
-                <Image
-                  src={items.image}
-                  alt="image"
-                  width={800}
-                  height={800}
-                  className="w-[100%] max-h-[100%]"
-                />
-              </div>
-              <div className="">
-                <h2 className="text-xl font-bold my-4 line-clamp-1">
-                  {items.name}
-                </h2>
-
-                <div className="grid grid-cols-3 w-full  gap-4">
-                  <span className="flex items-center gap-1">
-                    <Users2 /> {`${items.seats} seat`}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <img src="/car.png" alt="car" className="w-4 h-4" />
-                    {`${items.doors} `}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <FuelIcon /> {`${items.petrol}`}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <CalendarRange /> {`${items.year}`}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Settings /> {`${items.gearbox} `}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    {`${items.mileage}`}
-                  </span>
+        {car &&
+          car.map((items, i) => {
+            return (
+              <motion.div
+                variants={container}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                key={i}
+                className="flex flex-col gap-8 max-w-80 w-[95%] max-auto p-2 hover:border-2 rounded-lg "
+              >
+                <div className="max-h-48">
+                  <Image
+                    src={items.image}
+                    alt="image"
+                    width={800}
+                    height={800}
+                    className="w-[100%] max-h-[100%]"
+                  />
                 </div>
-                <div className="divider"></div>
-                <div className="flex items-center justify-between w-full">
-                  <Currency price={items.price} />
+                <div className="">
+                  <h2 className="text-xl font-bold my-4 line-clamp-1">
+                    {items.name}
+                  </h2>
 
-                  <ReserveButton id={items.id} items={items} />
+                  <div className="grid grid-cols-3 w-full  gap-4">
+                    <span className="flex items-center gap-1">
+                      <Users2 /> {`${items.seats} seat`}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <img src="/car.png" alt="car" className="w-4 h-4" />
+                      {`${items.doors} `}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FuelIcon /> {`${items.petrol}`}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <CalendarRange /> {`${items.year}`}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Settings /> {`${items.gearbox} `}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      {`${items.mileage}`}
+                    </span>
+                  </div>
+                  <div className="divider"></div>
+                  <div className="flex items-center justify-between w-full">
+                    <Currency price={items.price} />
+
+                    <ReserveButton id={items.id} items={items} />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          );
-        })}
+              </motion.div>
+            );
+          })}
       </div>
     </motion.div>
   );

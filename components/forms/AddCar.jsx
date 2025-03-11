@@ -25,7 +25,7 @@ const carSchema = yup.object().shape({
   cylinders: yup.string().min(3),
   petrol: yup.string().min(3),
   model: yup.string().min(3),
-  year: yup.string().min(3),
+  location: yup.string().min(3),
   mileage: yup.string().min(3),
   // condition: yup.string().min(3),
 });
@@ -269,18 +269,18 @@ const AddCar = () => {
                 </div>
                 <div className="flex items-center w-full gap-5">
                   <Label
-                    htmlFor="year"
+                    htmlFor="location"
                     className="flex flex-col gap-3 px-3 py-1 w-full "
                   >
-                    <span>Year</span>
+                    <span>Location</span>
                     <Input
-                      id="year"
-                      {...register("year")}
+                      id="location"
+                      {...register("location")}
                       className="border-2 focuse:outline-0 fucous:border-0 rounded-lg py-2"
                     />
-                    {errors.year && (
+                    {errors.location && (
                       <span className="text-rose-500 text-xs">
-                        {errors.year.message}
+                        {errors.location.message}
                       </span>
                     )}
                   </Label>

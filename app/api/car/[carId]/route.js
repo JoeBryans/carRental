@@ -1,4 +1,4 @@
-import db from "../../../../lib/db";
+import prisma from "../../../../lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
@@ -6,7 +6,7 @@ export async function GET(req, { params }) {
     const { carId } = await params;
     // console.log(carId);
 
-    const car = await db.car.findUnique({
+    const car = await prisma.car.findUnique({
       where: {
         id: carId,
       },
@@ -21,7 +21,7 @@ export async function PUT(req, { params }) {
   try {
     const body = await req.json();
     const { carId } = await params;
-    const car = await db.car.update({
+    const car = await prisma.car.update({
       where: {
         id: carId,
       },
@@ -40,7 +40,7 @@ export async function DELETE(req, { params }) {
   try {
     const { carId } = await params;
     console.log(carId);
-    const car = await db.car.delete({
+    const car = await prisma.car.delete({
       where: {
         id: carId,
       },

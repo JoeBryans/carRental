@@ -1,10 +1,12 @@
-import db from "../../../lib/db";
+import prisma from "../../../lib/db";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const car = await db.car.create({
+    console.log(body);
+
+    const car = await prisma.car.create({
       data: {
         ...body,
       },
@@ -18,7 +20,7 @@ export async function POST(req) {
 
 export async function GET(req) {
   try {
-    const car = await db.car.findMany();
+    const car = await prisma.car.findMany();
     return NextResponse.json(car);
   } catch (error) {
     return NextResponse.json(error);

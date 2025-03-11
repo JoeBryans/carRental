@@ -1,4 +1,4 @@
-import db from "../../../../lib/db";
+import prisma from "../../../../lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
@@ -53,7 +53,7 @@ export async function GET(req, res) {
   console.log(priceFilter);
 
   try {
-    const car = await db.car.findMany({
+    const car = await prisma.car.findMany({
       where: {
         OR: [
           { brand: filter.brand },
