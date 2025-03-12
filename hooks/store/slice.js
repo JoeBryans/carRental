@@ -21,14 +21,14 @@ const loadState = () => {
 const searchSaveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem("car", serializedState);
+    localStorage.setItem("search", serializedState);
   } catch (err) {
     // console.error(err);
   }
 };
 const searchLoadState = () => {
   try {
-    const serializedState = localStorage.getItem("car");
+    const serializedState = localStorage.getItem("search");
     return serializedState ? JSON.parse(serializedState) : {};
   } catch (err) {
     return {};

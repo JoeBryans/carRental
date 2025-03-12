@@ -4,11 +4,21 @@ import { reserve } from "../../../hooks/store/slice";
 import { useRouter } from "next/navigation";
 import React, { use, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { c } from "framer-motion/dist/types.d-6pKw1mTI";
 
 const Reserve = ({ item }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   console.log("reserve :", item);
+
+  const saveState = (state) => {
+    try {
+      const serializedState = JSON.stringify(state);
+      localStorage.setItem("clientSecret", serializedState);
+    } catch (err) {
+      // console.error(err);
+    }
+  };
 
   const handleReserve = async (item) => {
     dispatch(
@@ -51,7 +61,7 @@ const Reserve = ({ item }) => {
       //   redirect:false,
     });
     const { clientSecret } = await res.json();
-    localStorage.setItem("clientSecret", clientSecret);
+    saveState(clientSecret);
     console.log(clientSecret);
     router.push(`/payment`);
     // console.log(res);

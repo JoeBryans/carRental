@@ -10,8 +10,13 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
 const page = () => {
-  const clientSecret = localStorage.getItem("clientSecret");
-  console.log(clientSecret);
+  const [clientSecret, setClientSecret] = useState("");
+  if (typeof window !== "undefined") {
+    const clientSecret = localStorage.getItem("clientSecret");
+    setClientSecret(clientSecret);
+  }
+  // const clientSecret = localStorage.getItem("clientSecret");
+  // console.log(clientSecret);
 
   return (
     <div>
