@@ -23,8 +23,6 @@ import {
 } from "../../ui/dialog";
 import Image from "next/image";
 import { useState } from "react";
-import Link from "next/link";
-import Reserve from "./Reserve";
 import { Label } from "../../ui/label";
 import { Input } from "../../ui/input";
 import { DateRange } from "react-date-range";

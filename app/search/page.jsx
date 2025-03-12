@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const page = () => {
@@ -27,11 +27,11 @@ const page = () => {
   useEffect(() => {
     const urlParams = new URLSearchParams(search);
     // const location = urlParams.get("location");
-    const seats = urlParams.get("seats");
-    const brand = urlParams.get("brand");
-    const transmission = urlParams.get("transmission");
-    const max = urlParams.get("max");
-    const min = urlParams.get("min");
+    urlParams.get("seats");
+    urlParams.get("brand");
+    urlParams.get("transmission");
+    urlParams.get("max");
+    urlParams.get("min");
     const searchQuery = urlParams.toString();
     const FetchData = async () => {
       const res = await fetch(`api/car/search?${searchQuery}`);
@@ -45,9 +45,11 @@ const page = () => {
     <div>
       <Container>
         <div className="flex gap-8 w-full">
-          <div className="w-60 hidden md:block">
-            <SearchSideBar />
-          </div>
+          <Suspense>
+            <div className="w-60 hidden md:block">
+              <SearchSideBar />
+            </div>
+          </Suspense>
 
           <div className="w-full flex flex-col gap-4 ">
             {cars &&
