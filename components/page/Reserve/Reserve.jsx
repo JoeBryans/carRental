@@ -4,7 +4,6 @@ import { reserve } from "../../../hooks/store/slice";
 import { useRouter } from "next/navigation";
 import React, { use, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { c } from "framer-motion/dist/types.d-6pKw1mTI";
 
 const Reserve = ({ item }) => {
   const router = useRouter();
