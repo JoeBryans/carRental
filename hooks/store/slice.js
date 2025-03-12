@@ -1,12 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { tr } from "date-fns/locale";
+if (typeof window !== "undefined") window.localStorage.getItem("car");
+const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem("car", serializedState);
+  } catch (err) {
+    // console.error(err);
+  }
+};
 
+const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem("car");
+    return serializedState ? JSON.parse(serializedState) : {};
+  } catch (err) {
+    return {};
+  }
+};
+const searchSaveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem("car", serializedState);
+  } catch (err) {
+    // console.error(err);
+  }
+};
+const searchLoadState = () => {
+  try {
+    const serializedState = localStorage.getItem("car");
+    return serializedState ? JSON.parse(serializedState) : {};
+  } catch (err) {
+    return {};
+  }
+};
 const initialState = {
-  cars: localStorage.getItem("car")
-    ? JSON.parse(localStorage.getItem("car"))
-    : {},
-  search: localStorage.getItem("date")
-    ? JSON.parse(localStorage.getItem("date"))
-    : {},
+  cars: loadState(),
+  search: searchLoadState(),
 };
 
 const carSlice = createSlice({
@@ -15,12 +45,12 @@ const carSlice = createSlice({
   reducers: {
     reserve: (state, action) => {
       state.cars = action.payload;
-      localStorage.setItem("car", JSON.stringify(state.cars));
+      saveState(state);
     },
 
     SearchBar: (state, action) => {
       state.search = action.payload;
-      localStorage.setItem("date", JSON.stringify(state.search));
+      searchSaveState(state);
     },
   },
 });
