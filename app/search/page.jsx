@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const page = () => {
@@ -43,6 +43,7 @@ const page = () => {
 
   return (
     <div>
+      <Suspense fallback={<div>Loading...</div>}> </Suspense>
       <Container>
         <div className="flex gap-8 w-full">
           <div className="w-60 hidden md:block">
