@@ -2,7 +2,7 @@
 import { Button } from "../../ui/button";
 import { reserve } from "../../../hooks/store/slice";
 import { useRouter } from "next/navigation";
-import React, { use, useEffect, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 
 const Reserve = ({ item }) => {
