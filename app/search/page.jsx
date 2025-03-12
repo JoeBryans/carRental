@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const page = () => {
@@ -45,11 +45,9 @@ const page = () => {
     <div>
       <Container>
         <div className="flex gap-8 w-full">
-          <Suspense>
-            <div className="w-60 hidden md:block">
-              <SearchSideBar />
-            </div>
-          </Suspense>
+          <div className="w-60 hidden md:block">
+            <SearchSideBar />
+          </div>
 
           <div className="w-full flex flex-col gap-4 ">
             {cars &&
