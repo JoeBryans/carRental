@@ -1,6 +1,7 @@
+const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
 export const PostRequest = async (data) => {
   // data is optional
-  return fetch("http://localhost:3000/api/car", {
+  return fetch(`${endpoint}/api/car`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,14 +16,14 @@ export const PostRequest = async (data) => {
 
 // get api
 export const Get = async () => {
-  const res = await fetch("http://localhost:3000/api/car", {
+  const res = await fetch(`${endpoint}/api/car`, {
     cache: "no-cache",
   });
   const data = await res.json();
   return data;
 };
 export const GetSingle = async (id) => {
-  const res = await fetch(`http://localhost:3000/api/car/${id}`);
+  const res = await fetch(`${endpoint}/api/car/${id}`);
   const data = await res.json();
   return data;
 };

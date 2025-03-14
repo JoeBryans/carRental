@@ -22,7 +22,7 @@ const carSchema = yup.object().shape({
   gearbox: yup.string().min(3),
   doors: yup.number().min(1),
   seats: yup.number().min(1),
-  cylinders: yup.string().min(3),
+  distance: yup.string().min(3),
   petrol: yup.string().min(3),
   model: yup.string().min(3),
   location: yup.string().min(3),
@@ -98,6 +98,39 @@ const AddCar = () => {
                     </span>
                   )}
                 </Label>
+
+                <Label
+                  htmlFor="distance"
+                  className="flex flex-col gap-3 px-3 py-1 w-full "
+                >
+                  <span>Distance</span>
+                  <Input
+                    id="distance"
+                    {...register("distance")}
+                    className="border-2 focuse:outline-0 fucous:border-0 rounded-lg py-2"
+                  />
+                  {errors.distance && (
+                    <span className="text-rose-500 text-xs">
+                      {errors.distance.message}
+                    </span>
+                  )}
+                </Label>
+                <Label
+                  htmlFor="transmission"
+                  className="flex flex-col gap-3 px-3 py-1 w-full "
+                >
+                  <span>Transmission</span>
+                  <Input
+                    id="transmission"
+                    {...register("transmission")}
+                    className="border-2 focuse:outline-0 fucous:border-0 rounded-lg py-2"
+                  />
+                  {errors.transmission && (
+                    <span className="text-rose-500 text-xs">
+                      {errors.transmission.message}
+                    </span>
+                  )}
+                </Label>
                 <div className="flex items-center w-full gap-5">
                   <Label
                     htmlFor="brand"
@@ -144,22 +177,7 @@ const AddCar = () => {
                     )}
                   </Label>
                 </div>
-                <Label
-                  htmlFor="transmission"
-                  className="flex flex-col gap-3 px-3 py-1 w-full "
-                >
-                  <span>Transmission</span>
-                  <Input
-                    id="transmission"
-                    {...register("transmission")}
-                    className="border-2 focuse:outline-0 fucous:border-0 rounded-lg py-2"
-                  />
-                  {errors.transmission && (
-                    <span className="text-rose-500 text-xs">
-                      {errors.transmission.message}
-                    </span>
-                  )}
-                </Label>
+
                 <div className="flex items-center w-full gap-5">
                   <Label
                     htmlFor="engine"
@@ -309,22 +327,6 @@ const AddCar = () => {
               Additional Info
                       </Button> */}
                 <div className="flex items-center w-full gap-5 mb-4">
-                  <Label
-                    htmlFor="cylinders"
-                    className="flex flex-col gap-3 px-3 py-1 w-full "
-                  >
-                    <span>Cylinders</span>
-                    <Input
-                      id="cylinders"
-                      {...register("cylinders")}
-                      className="border-2 focuse:outline-0 fucous:border-0 rounded-lg py-2"
-                    />
-                    {errors.cylinders && (
-                      <span className="text-rose-500 text-xs">
-                        {errors.cylinders.message}
-                      </span>
-                    )}
-                  </Label>
                   <div className="flex flex-col gap-3 px-3 py-1 w-full ">
                     {/* <span>Additional Info</span> */}
                     <Additional_Info
