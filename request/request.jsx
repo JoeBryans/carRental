@@ -23,12 +23,7 @@ export const PostRequest = async (data) => {
 //   return data;
 // };
 export const Get = async () => {
-  const res = await fetch(`api/car`, {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(`api/car`);
   const data = await res.json();
   return data;
 };
