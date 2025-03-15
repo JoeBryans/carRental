@@ -17,18 +17,18 @@ export const PostRequest = async (data) => {
 };
 
 // get api
-export const Get = async () => {
-  const res = await axios.get(`api/car`);
-  const { data } = res;
-  return data;
-};
 // export const Get = async () => {
-//   const res = await fetch(`/api/car`, {
-//     mode: "no-cors",
-//   });
-//   const data = await res.json();
+//   const res = await axios.get(`api/car`);
+//   const { data } = res;
 //   return data;
 // };
+export const Get = async () => {
+  const res = await fetch(`api/car`, {
+    mode: "no-cors",
+  });
+  const data = await res.json();
+  return data;
+};
 export const GetSingle = async (id) => {
   const res = await fetch(`api/car/${id}`);
   const data = await res.json();
