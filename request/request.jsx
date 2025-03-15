@@ -3,7 +3,7 @@ import axios from "axios";
 // const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
 export const PostRequest = async (data) => {
   // data is optional
-  return fetch(`/api/car`, {
+  return fetch(`api/car`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const PostRequest = async (data) => {
 
 // get api
 export const Get = async () => {
-  const res = await axios.get(`/api/car`);
+  const res = await axios.get(`api/car`);
   const { data } = res;
   return data;
 };
@@ -30,7 +30,7 @@ export const Get = async () => {
 //   return data;
 // };
 export const GetSingle = async (id) => {
-  const res = await fetch(`/api/car/${id}`);
+  const res = await fetch(`api/car/${id}`);
   const data = await res.json();
   return data;
 };
