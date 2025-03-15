@@ -24,7 +24,10 @@ export const PostRequest = async (data) => {
 // };
 export const Get = async () => {
   const res = await fetch(`api/car`, {
-    mode: "no-cors",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
   });
   const data = await res.json();
   return data;
