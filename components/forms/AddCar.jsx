@@ -35,7 +35,7 @@ const AddCar = () => {
   const useEmail = user?.primaryEmailAddress?.emailAddress;
   const [additionalInfo, setAdditionalInfo] = useState([""]);
   const [image, setImage] = useState("");
-  console.log(additionalInfo);
+  console.log(image);
   const handleChange = (e, i) => {
     const { name, value } = e.target;
     const additiona = [...additionalInfo];

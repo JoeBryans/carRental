@@ -14,7 +14,8 @@ export async function POST(req) {
 
     return NextResponse.json({ car });
   } catch (error) {
-    return NextResponse.json(error);
+    // console.log(error);
+    return NextResponse.json(error.message);
   }
 }
 

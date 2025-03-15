@@ -9,12 +9,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgres"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Car {
-  id           String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   name         String
   price        Int
   userId       String?

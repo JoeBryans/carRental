@@ -6,6 +6,7 @@ export const PostRequest = async (data) => {
     headers: {
       "Content-Type": "application/json",
     },
+    mode: "no-cors",
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
@@ -18,6 +19,7 @@ export const PostRequest = async (data) => {
 export const Get = async () => {
   const res = await fetch(`${endpoint}/api/car`, {
     cache: "no-cache",
+    // mode: "no-cors",
   });
   const data = await res.json();
   return data;
