@@ -19,7 +19,7 @@ export const PostRequest = async (data) => {
 export const Get = async () => {
   const res = await fetch(`${endpoint}/api/car`, {
     cache: "no-cache",
-    // mode: "no-cors",
+    mode: "no-cors",
   });
   const data = await res.json();
   return data;
