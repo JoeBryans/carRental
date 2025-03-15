@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
 export const PostRequest = async (data) => {
   // data is optional
@@ -6,7 +8,6 @@ export const PostRequest = async (data) => {
     headers: {
       "Content-Type": "application/json",
     },
-    mode: "no-cors",
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
@@ -17,13 +18,17 @@ export const PostRequest = async (data) => {
 
 // get api
 export const Get = async () => {
-  const res = await fetch(`${endpoint}/api/car`, {
-    cache: "no-cache",
-    mode: "no-cors",
-  });
-  const data = await res.json();
+  const res = await axios.get(`${endpoint}/api/car`);
+  const { data } = res;
   return data;
 };
+// export const Get = async () => {
+//   const res = await fetch(`${endpoint}/api/car`, {
+//     mode: "no-cors",
+//   });
+//   const data = await res.json();
+//   return data;
+// };
 export const GetSingle = async (id) => {
   const res = await fetch(`${endpoint}/api/car/${id}`);
   const data = await res.json();
