@@ -32,6 +32,7 @@ const Testimoner = () => {
               <article className="w-96">
                 We rented a car from Decar Rentals and had an amazing expirence!
                 Then Renting system was easy and the price were very affordable
+                for everyone.
               </article>
               <span>2024-10-25</span>
             </div>
