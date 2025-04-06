@@ -20,7 +20,7 @@ const page = async ({ params }) => {
   const { id } = await params;
   console.log(id);
   let car = {};
-  const res = await fetch(`http://localhost:3000/api/car/${id}`);
+  const res = await fetch(`/api/car/${id}`);
   const data = await res.json();
   console.log(data);
   // (data);

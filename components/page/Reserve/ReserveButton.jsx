@@ -53,7 +53,7 @@ export function ReserveButton({ id }) {
   console.log(location, end, start);
 
   const handClick = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/car/${id}`);
+    const res = await fetch(`/api/car/${id}`);
     const data = await res.json();
     setData(data);
   };
